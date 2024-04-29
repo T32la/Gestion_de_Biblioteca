@@ -1,4 +1,7 @@
-# Proyecto Final para el Curso de Introducción a Algoritmos y Programación de la Universidad del Valle de Guatemala Campus Altiplano Año 2024
+<img src="https://res.cloudinary.com/webuvg/image/upload/f_auto/v1551291412/WEB/institucional/logouvg.png" style="color:red;" >
+
+# Proyecto Final 
+## del Curso de Introducción a Algoritmos y Programación de la Universidad del Valle de Guatemala Campus Altiplano Año 2024
 
 **Catedrático: Lic. Marvin Quiñónez**
 
