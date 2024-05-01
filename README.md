@@ -7,8 +7,8 @@
 
 **Catedrático: Lic. Marvin Quiñónez**
 
-Descripción del proyecto: 
-## Sistema de Gestion de Biblioteca. 
+## Descripción del proyecto: 
+### Sistema de Gestion de Biblioteca. 
 Programa #1
 
 El problema que se aborda en el proyecto del Sistema de Gestión de Biblioteca es la necesidad de desarrollar una aplicación que permita gestionar de manera eficiente y organizada el inventario de libros de una biblioteca.
