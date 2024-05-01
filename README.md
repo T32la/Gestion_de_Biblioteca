@@ -3,7 +3,7 @@
 </div>
 
 # Proyecto Final 
-## del Curso de Introducción a Algoritmos y Programación de la Universidad del Valle de Guatemala Campus Altiplano Año 2024
+## Curso de Introducción a Algoritmos y Programación de la Universidad del Valle de Guatemala Campus Altiplano Año 2024
 
 **Catedrático: Lic. Marvin Quiñónez**
 
