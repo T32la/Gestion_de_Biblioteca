@@ -1,6 +1,7 @@
-<div style="display:inline_block">
-  <img align="center" src="https://res.cloudinary.com/webuvg/image/upload/f_auto/v1551291412/WEB/institucional/logouvg.png" style="background-color:red;" >
+<div align="center">
+  <img align="center" src="https://res.cloudinary.com/webuvg/image/upload/f_auto/v1551291412/WEB/institucional/logouvg.png" style="background-color:green;" >
 </div>
+
 # Proyecto Final 
 ## del Curso de Introducción a Algoritmos y Programación de la Universidad del Valle de Guatemala Campus Altiplano Año 2024
 
