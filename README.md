@@ -1,9 +1,3 @@
----
-runme:
-  id: 01HX83116QXJ34P4T70NKEJTB9
-  version: v3
----
-
 <div align="center">
   <img align="center" src="https://res.cloudinary.com/webuvg/image/upload/f_auto/v1551291412/WEB/institucional/logouvg.png" style="background-color:green;" >
 </div>
