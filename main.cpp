@@ -7,6 +7,11 @@ using namespace std;
 
 int main()
 {
+	string titulo;
+	string autor;
+	string genero;
+	int anio_publicacion;
+	string estatus;
 
 	int options;
   cout << endl
@@ -20,8 +25,8 @@ int main()
  	system("cls");
 
   cout << endl;
-      
-	 // do {
+
+	 
 	  
 	   cout<< "Que deseas realizar en el Sistema de Biblioteca: " << endl;
        cout<< endl;
@@ -38,16 +43,29 @@ int main()
        cout<<"5. Salir"<<endl;
        
        
-	  //} while();
+	 
     
   	cout<<"ingrese la opcion"<<endl;
-  	cin>>options;
+    cin>>options;
   
   	
 	switch(options){
 		
 		case 1:
 			cout<<"Ingresar libros: "<<endl;
+
+			
+			cout<<"Ingresar el titulo del libro: "<<endl;
+			cin>>titulo;
+			cout<<"Ingrese el nombre del autor: "<<endl;
+			cin>>autor;
+			cout<<"Ingrese el genero del libro: "<<endl;
+			cin>>genero;
+			cout<<"Ingrese el año de la publicacion: "<<endl;
+			cin>>anio_publicacion;
+			cout<<"Ingrese el estatus: "<<endl;
+			cin>>estatus;
+			cout << titulo << autor << genero << anio_publicacion << estatus <<endl;
 			break;
 			
 		case 2:
@@ -65,6 +83,8 @@ int main()
 	
 		
 		}
+		
+	
 		
   return 0;
 }
