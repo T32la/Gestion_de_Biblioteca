@@ -5,6 +5,95 @@
 
 using namespace std;
 
+int menu(int options, int numeros1) {
+	vector<info>libros;
+	
+	do{
+	
+	
+	
+cout << endl;
+		cout << endl;
+		cout << h << "==============" << endl;
+		cout << h << "Biblioteca UVG" << endl;
+		cout << h << "==============" << endl;
+		cout << h << "== Menu ==" << endl;
+		cout << h << "================" << endl;
+		cout << h << "1. Ingresar libros" << endl;
+		cout << h << "2. Buscar y Mostrar informacion" << endl;
+		cout << h << "3. Actualizar informacion" << endl;
+		cout << h << "4. Listar Libros" << endl;
+		cout << h << "5. Descripcion" << endl;
+		cout << h << "6. Salir" << endl;
+
+		cout << h << "Elige una opcion: ";
+		cout << h;
+		cin >> option;
+		system("cls");
+
+		switch (option)
+		{
+		case 1:
+			cout << h << "Ingresar libros" << endl;
+			cout << h << "Cuantos libros deseas ingresar: ";
+			cin >> num1;
+			cout << h << "=====================" << endl;
+			for (int i = 1; i <= num1; i++)
+			{
+				Info libro;
+				cout << h << "Ingresa el Titulo del Libro: ";
+				cin.get();
+				getline(cin, libro.titulo);
+				cout << h << "Ingresa el Nombre del Autor: ";
+				getline(cin, libro.autor);
+				cout << h << "Ingresa el Genero del Libro: ";
+
+				getline(cin, libro.genero);
+				cout << h << "Ingresa el Anio de Publicacion del Libro: ";
+				cin >> libro.anio_publicacion;
+				cout << h << "Ingresa el estatus del Libro: ";
+				cin.get();
+				getline(cin, libro.estatus);
+				libros.push_back(libro);
+			}
+			pause();
+			cout << "=====================" << endl;
+			mostrar(libros);
+			break;
+		case 2:
+			cout << "Buscar libro: " << endl;
+			pause();
+			break;
+		case 3:
+			cout << "Actualizar informacion: " << endl;
+			pause();
+			break;
+		case 4:
+			cout << "======================" << endl;
+			cout << h << "Libros Disponibles: ";
+			mostrar(libros);
+			pause();
+			break;
+		case 5:
+			cout << "Descripcion: " << endl;
+			pause();
+			break;
+		case 6:
+			salir(validar);
+			break;
+		default:
+			cout << "Opcion incorrecta" << endl;
+			break;
+		}
+
+	} while (option != 6);
+	return 0;
+}
+
+
+
+	// adhakjdskfaldsfadfa
+
 int main()
 {
 	string titulo;
@@ -26,64 +115,6 @@ int main()
 
   cout << endl;
 
-	 
-	  
-	   cout<< "Que deseas realizar en el Sistema de Biblioteca: " << endl;
-       cout<< endl;
-       cout<<"=========="<<endl;
-       cout<<"Biblioteca"<<endl;
-       cout<<"=========="<<endl;
-       cout<<"== Menu =="<<endl;
-       cout<<"Elige una opcion"<<endl;
-       cout<<"================"<<endl;
-       cout<<"1. Ingresar libros"<<endl;
-       cout<<"2. Buscar y Mostrar informacion"<<endl;
-       cout<<"3. Actualizar informacion"<<endl;
-       cout<<"4. Descripcion"<<endl;
-       cout<<"5. Salir"<<endl;
-       
-       
-	 
-    
-  	cout<<"ingrese la opcion"<<endl;
-    cin>>options;
-  
-  	
-	switch(options){
-		
-		case 1:
-			cout<<"Ingresar libros: "<<endl;
-
-			
-			cout<<"Ingresar el titulo del libro: "<<endl;
-			cin>>titulo;
-			cout<<"Ingrese el nombre del autor: "<<endl;
-			cin>>autor;
-			cout<<"Ingrese el genero del libro: "<<endl;
-			cin>>genero;
-			cout<<"Ingrese el año de la publicacion: "<<endl;
-			cin>>anio_publicacion;
-			cout<<"Ingrese el estatus: "<<endl;
-			cin>>estatus;
-			cout << titulo << autor << genero << anio_publicacion << estatus <<endl;
-			break;
-			
-		case 2:
-			cout<<"Buscar libro: "<<endl;
-			break;
-		case 3:
-			cout<<"Actualizar informacion: "<<endl;
-			break;
-		case 4:
-			cout<<"Descripcion: "<<endl;
-			break;
-		case 5:
-			cout<<" cerrar sesion: "<<endl;
-			break;	
-	
-		
-		}
-		
 	
 		
   return 0;
