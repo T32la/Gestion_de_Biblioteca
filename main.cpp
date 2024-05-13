@@ -3,18 +3,36 @@
 #include <vector>
 #include "colors.h"
 
+
 using namespace std;
+string h = "t\";
+struct Info
+{
+	string titulo;
+	string autor;
+	string genero;
+	int anio_publicacion;
+	string estatus;
+};
+
+void mostrar(vector<Info> libros)
+{
+
+	for (int i = 0; i < libros.size(); i++)
+	{
+		cout << h << i << ". " << libros[i].titulo << h
+				 << libros[i].autor << h << libros[i].genero << h << libros[i].anio_publicacion << h << libros[i].estatus << endl;
+	}
+}
 
 int menu(int options, int numeros1) {
-	vector<info>libros;
+	//vector<info>libros;
 	
 	do{
 	
-	
-	
-cout << endl;
 		cout << endl;
-		cout << h << "==============" << endl;
+		cout << endl;
+		cout <<  << "==============" << endl;
 		cout << h << "Biblioteca UVG" << endl;
 		cout << h << "==============" << endl;
 		cout << h << "== Menu ==" << endl;
@@ -112,7 +130,7 @@ int main()
        
        system("pause");
  	system("cls");
-
+	menu ();
   cout << endl;
 
 	
