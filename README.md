@@ -39,3 +39,9 @@ Juan
 Kevin
 
 Victoriano
+
+## Descripcion y estructura del Programa `Sistema de Gestion de Biblioteca`
+
+[Estructura y descipcion programa](https://github.com/T32la/Gestion_de_Biblioteca/wiki/main)
+
+[Estructura y desciptcion de la libreria libros.h](https://github.com/T32la/Gestion_de_Biblioteca/wiki/Librer%C3%ADa-libros.h)
