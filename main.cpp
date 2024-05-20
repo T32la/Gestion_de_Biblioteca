@@ -190,6 +190,18 @@ void actualizarInformacion(vector<Libro>& libros) {
     pausa();
 }
 
+void descripcion() {
+    cout << h << "Descripcion: " << endl;
+    cout << h << "\tVersion V0.01\n\n\tSistema de Gestion de libros de la Biblioteca de la UVG.\n\n\tOpciones disponibles:\n\n\t\t1. Agregar libros.\n\n\t\t2. Buscar y Listar libros.\n\n\t\t3. Buscar libro por titulo, genero y actualizar los campos del Libro.\n\n\t\t4. Listar libros.\n\n\t\t5. Descripcion del programa.\n\n\t\t6. Salir del programa.\n\n\tDesarrolladores:\n\n\t\t- Evelin Carolina\n\n\t\t- Daniel Andres\n\n\t\t- Juan Ralios\n\n\t\t- Kevin Antonio\n\n\t\t- Victoriano Juarez.\n\n\n\n\tProyecto Final del Curso de Algoritmos y Programacion.\n\n\t\t Lic. Marvin\n\n\n\t\tUniversidad del Valle de Guatemala\n\n\n\t\tAltiplano Solola 2024." << endl << endl;
+    pausa();
+}
+
+void pausa() {
+    cout << h << "Presiona Enter para continuar...";
+    cin.ignore();
+    cin.get();
+}
+
 void menu(vector<Libro>& libros) {
     int op;
     do {
