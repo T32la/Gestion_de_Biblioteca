@@ -1,6 +1,6 @@
 [Project]
-filename=sistemaLibreria.dev
-name=sistemaLibreria
+filename=biblioteca.dev
+name=Biblioteca
 Type=1
 Ver=2
 ObjFiles=
@@ -27,9 +27,9 @@ CommandLine=
 Folders=
 IncludeVersionInfo=0
 SupportXPThemes=0
-CompilerSet=3
-CompilerSettings=0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;4;0;0;0
-UnitCount=2
+CompilerSet=0
+CompilerSettings=0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;4;0;0;0
+UnitCount=1
 
 [VersionInfo]
 Major=1
@@ -51,17 +51,7 @@ AutoIncBuildNr=0
 SyncProduct=1
 
 [Unit1]
-FileName=main.cpp
-CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit2]
-FileName=colors.h
+FileName=..\gestionUVGLibreria\main.cpp
 CompileCpp=1
 Folder=
 Compile=1
