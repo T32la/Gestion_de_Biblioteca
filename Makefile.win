@@ -1,4 +1,4 @@
-# Project: biblioteca
+# Project: Biblioteca
 # Makefile created by Embarcadero Dev-C++ 6.3
 
 CPP      = g++.exe
