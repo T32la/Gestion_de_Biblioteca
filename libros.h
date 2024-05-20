@@ -14,3 +14,13 @@ struct Libro {
     int anio_publicacion;
     string estatus;
 };
+
+void mostrar(const vector<Libro>& libros);
+void ingresarLibros(vector<Libro>& libros);
+void buscarLibro(const vector<Libro>& libros);
+void actualizarInformacion(vector<Libro>& libros);
+void descripcion();
+void pausa();
+void menu(vector<Libro>& libros);
+
+#endif // LIBROS_H
