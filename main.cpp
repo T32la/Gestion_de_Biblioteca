@@ -60,6 +60,67 @@ void buscarLibro(const vector<Libro>& libros) {
     pausa();
 }
 
+void actualizarInformacion(vector<Libro>& libros) {
+    string buscar, op_buscar, nuevo_titulo, nuevo_estatus;
+    cout << h << "Actualizar informacion: " << endl;
+    while (true) {
+        cout << h << "¿Actualizar informacion del libro por titulo o estatus? (Escribe: titulo o estatus): ";
+        cin >> op_buscar;
+        cin.ignore();
+
+        if (op_buscar == "titulo") {
+            cout << h << "Introduce el titulo del libro que deseas buscar: ";
+            getline(cin, buscar);
+            bool encontrado = false;
+            for (auto& libro : libros) {
+                if (libro.titulo == buscar) {
+                    cout << h << "Libro encontrado: " << endl;
+                    cout << h << "Titulo: " << libro.titulo << h << "Autor: " << libro.autor << h<< "Genero: " << libro.genero << h << "Año: " << libro.anio_publicacion  << h << "Estatus: " << libro.estatus << endl;
+                    cout << h << "Introduce el nuevo titulo: ";
+					getline(cin, nuevo_titulo);
+                    libro.titulo = nuevo_titulo;
+                    encontrado = true;
+                    break;
+                }
+            }
+            
+            if (!encontrado) {
+                cout << h << "Libro no encontrado." << endl;
+            }
+        } else if (op_buscar == "estatus") {
+            cout << h << "Introduce el genero del libro que deseas buscar: ";
+            getline(cin, buscar);
+            bool encontrado = false;
+            for (auto& libro : libros) {
+                if (libro.titulo == buscar) {
+                    cout << h << "Libro encontrado: " << endl;
+                    cout << h << "Titulo: " << libro.titulo << h<<", Autor: " << libro.autor << h << ", Genero: " << libro.genero 
+					<< h << ", Año: " << libro.anio_publicacion << h << ", Estatus: " << libro.estatus << endl;
+                    cout << h << "Introduce el nuevo estatus: ";
+                    getline(cin, nuevo_estatus);
+                    libro.estatus = nuevo_estatus;
+                    encontrado = true;
+                    break;
+                }
+            }
+            if (!encontrado) {
+                cout << h << "Libro no encontrado." << endl;
+            }
+        } else {
+            cout << h << "Opcion no valida." << endl;
+        }
+        
+        cout << "¿Deseas actualizar otro libro? (si/no): ";
+        string respuesta;
+        cout << h; cin >> respuesta;
+        cin.ignore();
+        if (respuesta != "si") {
+            break;
+        }
+    }
+    pausa();
+}
+
 void menu(vector<Libro>& libros) {
     int op;
     do {
