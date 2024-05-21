@@ -41,10 +41,7 @@ void ingresarLibros(vector<Libro>& libros) {
     }
     pausa();
 }
-// Finaliza la tarea de Evelyn
 
-
-// Tarea de Para Juan --- inicio
 void buscarLibro(const vector<Libro>& libros) {
     string buscar, op_buscar;
     cout << "Buscar libro: " << endl;
@@ -60,12 +57,7 @@ void buscarLibro(const vector<Libro>& libros) {
                     cout << h << libro.titulo << h << libro.autor << h << libro.genero << h << libro.anio_publicacion << h << libro.estatus << endl;
                 }
             }
-        }
-        else {
-            cout << h << "Opcion no valida." << endl;
-        }
-        
-		if (op_buscar == "genero") {
+        } else if (op_buscar == "genero") {
             cout << h << "Ingrese el genero del libro: ";
             cout << h; getline(cin, buscar);
             for (const auto& libro : libros) {
@@ -87,47 +79,6 @@ void buscarLibro(const vector<Libro>& libros) {
     pausa();
 }
 
-void buscarLibro(const vector<Libro>& libros) {
-    string buscar, op_buscar;
-    cout << "Buscar libro: " << endl;
-    while (true) {
-        cout << endl << h << "¿Buscar por titulo o por genero? (titulo | genero): " << endl;
-        cout << h; cin >> op_buscar;
-        cin.ignore();
-        if (op_buscar == "titulo") {
-            cout << h << "Ingrese el titulo del libro: ";
-            cout << h; getline(cin, buscar);
-            for (const auto& libro : libros) {
-                if (libro.titulo == buscar) {
-                    cout << h << libro.titulo << h << libro.autor << h << libro.genero << h << libro.anio_publicacion << h << libro.estatus << endl;
-                }
-            }
-        }
-        else {
-            cout << h << "Opcion no valida." << endl;
-        }
-        
-		if (op_buscar == "genero") {
-            cout << h << "Ingrese el genero del libro: ";
-            cout << h; getline(cin, buscar);
-            for (const auto& libro : libros) {
-                if (libro.genero == buscar) {
-                    cout << h << libro.titulo << h << libro.autor << h << libro.genero << h << libro.anio_publicacion << h << libro.estatus << endl;
-                }
-            }
-        } else {
-            cout << h << "Opcion no valida." << endl;
-        }
-        cout << endl << "¿Deseas realizar otra busqueda? (si/no): ";
-        string respuesta;
-        cout << h; cin >> respuesta;
-        cin.ignore();
-        if (respuesta != "si") {
-            break;
-        }
-    }
-    pausa();
-}
 
 void actualizarInformacion(vector<Libro>& libros) {
     string buscar, op_buscar, nuevo_titulo, nuevo_estatus;
@@ -255,7 +206,7 @@ void menu(vector<Libro>& libros) {
 int main() {
     vector<Libro> libros;
     libros.push_back({"Eloquent Javascript", "Marijin Haverbeke", "Programacion", 2024, "Disponible"});
-	libros.push_back({"Fundamentos de Programacion usando PSeInt", "Ivan Garcia", "Logica", 2014, "Disponible"});
+	  libros.push_back({"Fundamentos de Programacion usando PSeInt", "Ivan Garcia", "Logica", 2014, "Disponible"});
     menu(libros);
     return 0;
 }
