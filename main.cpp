@@ -12,7 +12,7 @@ string v = "\v";
 
 // Funciones
 void mostrar(const vector<Libro>& libros) {
-    for (int i = 0; i < libros.size(); i++) {
+    for (int i = 0 ; i < libros.size(); i++) {
         cout << endl << h << i << ". " << libros[i].titulo << h
              << libros[i].autor << h << libros[i].genero << h << libros[i].anio_publicacion << h << libros[i].estatus << endl;
     }
@@ -26,7 +26,7 @@ void ingresarLibros(vector<Libro>& libros) {
     cin.ignore();
     for (int i = 1; i <= num; i++) {
         Libro libro;
-        cout << h << "Ingresa el Titulo del Libro: ";
+        cout << h << "Ingresa el Titulo del Libro num:  "<<i<< ":  ";
         getline(cin, libro.titulo);
         cout << h << "Ingresa el Nombre del Autor: ";
         getline(cin, libro.autor);
@@ -38,45 +38,65 @@ void ingresarLibros(vector<Libro>& libros) {
         cout << h << "Ingresa el estatus del Libro: ";
         getline(cin, libro.estatus);
         libros.push_back(libro);
+        
+    	 system("cls");
+         
     }
-    pausa();
+    
+		cout<<h<<h<<h<<"Los datos del libro hab  sido registrados correctamente en el sisteema..."<<endl;
+   		system("pause");
+   		system("cls");
+      
 }
 
-void buscarLibro(const vector<Libro>& libros) {
+void buscarLibro(const vector<Libro>&libros) {
     string buscar, op_buscar;
     cout << "Buscar libro: " << endl;
     while (true) {
         cout << endl << h << "¿Buscar por titulo o por genero? (titulo | genero): " << endl;
         cout << h; cin >> op_buscar;
         cin.ignore();
+        system("cls");
         if (op_buscar == "titulo") {
             cout << h << "Ingrese el titulo del libro: ";
             cout << h; getline(cin, buscar);
-            for (const auto& libro : libros) {
-                if (libro.titulo == buscar) {
-                    cout << h << libro.titulo << h << libro.autor << h << libro.genero << h << libro.anio_publicacion << h << libro.estatus << endl;
-                }
+            
+            for (int i = 0; i<libros.size(); i++) {
+                if (libros[i].titulo == buscar) {			   
+				   
+	        	cout << h << libros[i].titulo << h << libros[i].autor << h << libros[i].genero << h << libros[i].anio_publicacion << h << libros[i].estatus << endl;  
+			   
+			    }
+			    
             }
+            
         } else if (op_buscar == "genero") {
             cout << h << "Ingrese el genero del libro: ";
             cout << h; getline(cin, buscar);
-            for (const auto& libro : libros) {
-                if (libro.genero == buscar) {
-                    cout << h << libro.titulo << h << libro.autor << h << libro.genero << h << libro.anio_publicacion << h << libro.estatus << endl;
-                }
-            }
+            
+            for (int i =0; i<libros.size(); i++) {
+                if (libros[i].genero == buscar) {
+                    cout << h << libros[i].titulo << h << libros[i].autor << h << libros[i].genero << h << libros[i].anio_publicacion << h << libros[i].estatus << endl;
+                
+				}
+           
+		    }
         } else {
             cout << h << "Opcion no valida." << endl;
         }
         cout << endl << "¿Deseas realizar otra busqueda? (si/no): ";
         string respuesta;
         cout << h; cin >> respuesta;
+        system("pause");
+    system("cls");
+        
         cin.ignore();
         if (respuesta != "si") {
             break;
         }
     }
-    pausa();
+    system("pause");
+    system("cls");
 }
 
 
@@ -89,7 +109,7 @@ void actualizarInformacion(vector<Libro>& libros) {
         cin.ignore();
 
         if (op_buscar == "titulo") {
-            cout << h << "Introduce el titulo del libro que deseas buscar: ";
+            cout << h << "Introduce el titulo del libro que deseas actualizar: ";
             getline(cin, buscar);
             bool encontrado = false;
             for (auto& libro : libros) {
