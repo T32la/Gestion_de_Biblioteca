@@ -39,7 +39,7 @@ void ingresarLibros(vector<Libro>& libros) {
         getline(cin, libro.estatus);
         libros.push_back(libro);
     }
-    pausa();
+    system("cls");
 }
 
 void buscarLibro(const vector<Libro>& libros) {
@@ -76,7 +76,7 @@ void buscarLibro(const vector<Libro>& libros) {
             break;
         }
     }
-    pausa();
+    system("cls");
 }
 
 
@@ -138,7 +138,7 @@ void actualizarInformacion(vector<Libro>& libros) {
             break;
         }
     }
-    pausa();
+    system("cls");
 }
 
 void descripcion() {
