@@ -14,7 +14,10 @@ string v = "\v";
 void mostrar(const vector<Libro>& libros) {
     for (int i = 0 ; i < libros.size(); i++) {
         cout << endl << h << i << ". " << libros[i].titulo << h
-             << libros[i].autor << h << libros[i].genero << h << libros[i].anio_publicacion << h << libros[i].estatus << endl;
+        << libros[i].autor << h << libros[i].genero << h << libros[i].anio_publicacion << h << libros[i].estatus << "Estatus: " << libros[i].estatus << "Disponible: " << (libros[i].disponible ? "Sí" : "No") << endl; //  // Mostrar el estatus
+      //Mostrar disponibilidad
+        cout << "-----------------" << endl;
+
     }
 }
 
@@ -35,8 +38,9 @@ void ingresarLibros(vector<Libro>& libros) {
         cout << h << "Ingresa el Anio de Publicacion del Libro: ";
         cin >> libro.anio_publicacion;
         cin.ignore();
-        cout << h << "Ingresa el estatus del Libro: ";
-        getline(cin, libro.estatus);
+        cout << h << " Estatus: ";
+        libro.disponible=true;
+        //getline(cin, libro.estatus);
         libros.push_back(libro);
         
     	 system("cls");
