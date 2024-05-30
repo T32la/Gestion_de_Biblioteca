@@ -42,15 +42,13 @@ void ingresarLibros(vector<Libro>& libros) {
     	 system("cls");
          
     }
-<<<<<<< HEAD
+
     system("cls");
-=======
+
     
-		cout<<h<<h<<h<<"Los datos del libro hab  sido registrados correctamente en el sisteema..."<<endl;
+		cout<<h<<h<<h<<"Los datos del libro hab  sido registrados correctamente en el sistema..."<<endl;
    		system("pause");
    		system("cls");
-      
->>>>>>> 9abc036d74fc9c2d32a1a78e1df0464f7b1bfcf0
 }
 
 void buscarLibro(const vector<Libro>&libros) {
@@ -99,10 +97,8 @@ void buscarLibro(const vector<Libro>&libros) {
             break;
         }
     }
-<<<<<<< HEAD
-=======
+
     system("pause");
->>>>>>> 9abc036d74fc9c2d32a1a78e1df0464f7b1bfcf0
     system("cls");
 }
 
