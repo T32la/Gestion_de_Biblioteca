@@ -13,6 +13,7 @@ struct Libro {
     string genero;
     int anio_publicacion;
     string estatus;
+    bool disponible;
 };
 
 void mostrar(const vector<Libro>& libros);
