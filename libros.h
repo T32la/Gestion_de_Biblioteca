@@ -1,4 +1,4 @@
-// tare para Juan -- Inicio
+// tare para Juan crear estructura de libreria -- Inicio
 #ifndef LIBROS_H
 #define LIBROS_H
 
@@ -7,6 +7,7 @@
 
 using namespace std;
 
+// Tarea kevin -- definir estructura y declarar funciones
 struct Libro {
     string titulo;
     string autor;
@@ -24,4 +25,8 @@ void descripcion();
 void pausa();
 void menu(vector<Libro>& libros);
 
+// Fin tarea Kevin
+
 #endif // LIBROS_H
+
+// estructura finalizada
