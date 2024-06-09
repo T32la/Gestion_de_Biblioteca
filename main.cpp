@@ -1,3 +1,4 @@
+// creado por Andres Brito
 #include <iostream>
 #include <string>
 #include <vector>
@@ -5,12 +6,13 @@
 #include "libros.h"
 
 using namespace std;
+// Fin de Andres Brito
 
 // Variables Globales
 string h = "\t";
 
 // Funciones
-
+// Creado por Evelyn
 void menu(vector<Libro>& libros) {
     int op;
     do {
@@ -59,10 +61,14 @@ void menu(vector<Libro>& libros) {
         }
     } while (op != 6);
 }
-
+// Fin - 
 
 void mostrar(const vector<Libro>& libros) {
-     cout << h << "Titulo" << h << "Autor" << h << "Genero" << h << "Año de Publicación" << h << "Estatus";
+     cout << h << "Titulo" 
+     << h << h << h << "Autor" 
+     << h << h << h << "Genero" 
+     << h << h << "Anio" 
+     << h << "Estatus";
     for (int i = 0 ; i < libros.size(); i++) {
         cout << endl << h << i << ". " << libros[i].titulo << h
              << libros[i].autor << h << libros[i].genero << h << libros[i].anio_publicacion << h << libros[i].estatus << endl;
@@ -99,7 +105,7 @@ void buscarLibro(const vector<Libro>&libros) {
     string buscar, op_buscar;
     cout << "Buscar libro: " << endl;
     while (true) {
-        cout << endl << h << "¿Buscar por titulo o por genero? (titulo | genero): " << endl;
+        cout << endl << h << "¿Buscar por titulo o por genero? (titulo | genero): ";
         cin >> op_buscar;
         cin.ignore();
         system("cls");
