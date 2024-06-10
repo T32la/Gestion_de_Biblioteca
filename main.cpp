@@ -227,8 +227,13 @@ void actualizarInformacion(vector<Libro>& libros) {
                 cout << h << "Libro no encontrado." << endl;
             }
         } else if (op_buscar == "estatus") {
+<<<<<<< HEAD
             cout << h << "Introduce el nombre del libro que deseas buscar: ";
+=======
+            cout << h << "Introduce el estatus del libro que deseas buscar: ";
+>>>>>>> ea3d8ccba7e33ea88b60638ccd8efe8465dddca8
             getline(cin, buscar);
+            cin.ignore();
             bool encontrado = false;
             for (auto& libro : libros) {
                 if (libro.titulo == buscar) {
