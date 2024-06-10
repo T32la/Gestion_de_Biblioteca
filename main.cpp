@@ -193,11 +193,11 @@ void actualizarInformacion(vector<Libro>& libros) {
     string buscar, op_buscar, nuevo_titulo, nuevo_estatus;
     cout << h << "Actualizar informacion: " << endl;
     while (true) {
-        cout << h 
-        << "¿Actualizar informacion del libro por titulo o estatus?" << endl 
+        cout << h << endl << endl
+        << "¿Actualizar informacion del libro por titulo o estatus?" << endl << endl
 		<< h << "(Escribe: titulo o estatus): ";
         cin >> op_buscar;
-        buscar[0] = toupper(buscar[0]);
+        cin.ignore();
 		pausa();
         if (op_buscar == "titulo") {
             cout << h << "Introduce el titulo del libro que deseas actualizar: ";
@@ -228,8 +228,8 @@ void actualizarInformacion(vector<Libro>& libros) {
             }
         } else if (op_buscar == "estatus") {
             cout << h << "Introduce el estatus del libro que deseas buscar: ";
+            cin.get();
             getline(cin, buscar);
-            buscar[0] = toupper(buscar[0]);
             bool encontrado = false;
             for (auto& libro : libros) {
                 if (libro.titulo == buscar) {
