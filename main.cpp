@@ -151,8 +151,7 @@ void buscarLibro(const vector<Libro>&libros) {
 							cout << h << "Estatus: " << h << ANSI_ROJO << libros[i].estatus <<ANSI_RESET << endl;
 						}
                    }
-            } 
-            
+            }     
         } else if (op_buscar == "genero") {
             cout << h << "Ingrese el genero del libro: ";
             getline(cin, buscar);
@@ -170,7 +169,7 @@ void buscarLibro(const vector<Libro>&libros) {
 							cout << h << "Estatus: " << h << ANSI_ROJO << libros[i].estatus <<ANSI_RESET << endl;
 						}  
 				    } 
-		        }
+		        }       
         } else {
             cout << h << "Opcion no valida." << endl;
         }
@@ -210,7 +209,7 @@ void actualizarInformacion(vector<Libro>& libros) {
 					<< h << "Titulo: " << h << libro.titulo << endl 
 					<< h << "Autor: " << h << h << libro.autor << endl 
 					<< h<< "Genero: " << h << libro.genero << endl 
-					<< h << "Año: " << h << h << libro.anio_publicacion << endl;
+					<< h << "Anio: " << h << h << libro.anio_publicacion << endl;
 					if (libro.estatus == "Disponible" || libro.estatus == "disponible") {
 						cout << h << "Estatus: " << h << ANSI_VERDE << libro.estatus << ANSI_RESET << endl;
 					} else {
@@ -227,13 +226,8 @@ void actualizarInformacion(vector<Libro>& libros) {
                 cout << h << "Libro no encontrado." << endl;
             }
         } else if (op_buscar == "estatus") {
-<<<<<<< HEAD
             cout << h << "Introduce el nombre del libro que deseas buscar: ";
-=======
-            cout << h << "Introduce el estatus del libro que deseas buscar: ";
->>>>>>> ea3d8ccba7e33ea88b60638ccd8efe8465dddca8
             getline(cin, buscar);
-            cin.ignore();
             bool encontrado = false;
             for (auto& libro : libros) {
                 if (libro.titulo == buscar) {
@@ -242,13 +236,12 @@ void actualizarInformacion(vector<Libro>& libros) {
 					<< h << "Titulo: " << h << libro.titulo << endl 
 					<< h << "Autor: " << h << h << libro.autor << endl 
 					<< h << "Genero: " << h << libro.genero << endl 
-					<< h << "Año: " << h << h << libro.anio_publicacion << endl;
+					<< h << "Anio: " << h << h << libro.anio_publicacion << endl;
 					if (libro.estatus == "Disponible" || libro.estatus == "disponible") {
 						cout << h << "Estatus: " << h << ANSI_VERDE << libro.estatus << ANSI_RESET << endl;
 					} else {
 						cout << h << "Estatus: " << h << ANSI_ROJO << libro.estatus <<ANSI_RESET << endl;
-					}
-					
+					}					
                     cout << h << "Introduce el nuevo estatus: ";
                     getline(cin, nuevo_estatus);
                     libro.estatus = nuevo_estatus;
