@@ -5,7 +5,6 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <limits>
 #include "libros.h"
 
 // colores en terminal
@@ -22,16 +21,16 @@ string h = "\t";
 /************************************************
 *				Funciones						*
 *************************************************/
-// Creado por Evelyn
+// Creado por Evelyn 
 void menu(vector<Libro>& libros) {
     int op;
     do {
-        cout << endl;
-        cout << h << "====================" << endl;
-        cout << h << "== Biblioteca UVG ==" << endl;
+        cout << endl ;
+        cout << h<< ANSI_VERDE  << "====================" << endl;
+        cout << h << "== Biblioteca UVG =="   << endl;
         cout << h << "====================" << endl;
         cout << h << " ====== Menu ====== " << endl;
-        cout << h << "====================" << endl;
+        cout << h << "====================" << ANSI_RESET << endl << endl;
         cout << h << "1. Ingresar libros" << endl;
         cout << h << "2. Buscar y Mostrar informacion" << endl;
         cout << h << "3. Actualizar informacion" << endl;
@@ -46,7 +45,6 @@ void menu(vector<Libro>& libros) {
 
         switch (op) {
             case 1:
-            	cout << endl;
                 ingresarLibros(libros);
                 break;
             case 2:
@@ -258,7 +256,7 @@ void actualizarInformacion(vector<Libro>& libros) {
         
         cout << "¿Deseas actualizar otro libro? (si/no): ";
         string respuesta;
-        cout << h; cin >> respuesta;
+        cin >> respuesta;
         cin.ignore();
         if (respuesta != "si") {
             break;
