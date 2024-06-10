@@ -38,7 +38,7 @@ Actualizar información: Facilitar la actualización de la información de los l
 
 - [x] Kevin Antonio
 
-- [x] Victoriano
+- [x] Victoriano Juarez
 
 ## Descripcion y estructura del Programa `Sistema de Gestion de Biblioteca`
 
