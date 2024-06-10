@@ -193,7 +193,7 @@ void actualizarInformacion(vector<Libro>& libros) {
     string buscar, op_buscar, nuevo_titulo, nuevo_estatus;
     cout << h << "Actualizar informacion: " << endl;
     while (true) {
-        cout << h << endl << endl
+        cout << endl << endl << h 
         << "¿Actualizar informacion del libro por titulo o estatus?" << endl << endl
 		<< h << "(Escribe: titulo o estatus): ";
         cin >> op_buscar;
