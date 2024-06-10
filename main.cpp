@@ -5,7 +5,6 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <limits>
 #include "libros.h"
 
 // colores en terminal
@@ -22,16 +21,16 @@ string h = "\t";
 /************************************************
 *				Funciones						*
 *************************************************/
-// Creado por Evelyn
+// Creado por Evelyn 
 void menu(vector<Libro>& libros) {
     int op;
     do {
-        cout << endl;
-        cout << h << "====================" << endl;
-        cout << h << "== Biblioteca UVG ==" << endl;
+        cout << endl ;
+        cout << h<< ANSI_VERDE  << "====================" << endl;
+        cout << h << "== Biblioteca UVG =="   << endl;
         cout << h << "====================" << endl;
         cout << h << " ====== Menu ====== " << endl;
-        cout << h << "====================" << endl;
+        cout << h << "====================" << ANSI_RESET << endl << endl;
         cout << h << "1. Ingresar libros" << endl;
         cout << h << "2. Buscar y Mostrar informacion" << endl;
         cout << h << "3. Actualizar informacion" << endl;
@@ -46,7 +45,6 @@ void menu(vector<Libro>& libros) {
 
         switch (op) {
             case 1:
-            	cout << endl;
                 ingresarLibros(libros);
                 break;
             case 2:
@@ -88,7 +86,7 @@ void mostrar(const vector<Libro>& libros) {
 		<< h<< "Genero: " << h << libros[i].genero << endl 
 		<< h << "Anio: " << h << h << libros[i].anio_publicacion << endl;
 	
-		if (libros[i].estatus == "Disponible") {
+		if (libros[i].estatus == "Disponible" || libros[i].estatus == "disponible") {
 			cout << h << "Estatus: " << h << ANSI_VERDE << libros[i].estatus << ANSI_RESET << endl << endl << endl;
 		} else {
 			cout << h << "Estatus: " << h << ANSI_ROJO << libros[i].estatus <<ANSI_RESET << endl << endl << endl;
@@ -126,7 +124,7 @@ void buscarLibro(const vector<Libro>&libros) {
     string buscar, op_buscar;
     cout << endl << h << "Buscar libro: " << endl;
     while (true) {
-        cout << endl << h << "¿Buscar por titulo o por genero?"
+        cout << endl << h << "Â¿Buscar por titulo o por genero?"
 			<< endl << h << " (Escribe: titulo o genero): ";
         cin >> op_buscar;
         cin.ignore();
@@ -145,14 +143,13 @@ void buscarLibro(const vector<Libro>&libros) {
 					  << h << "Genero: "<< h << libros[i].genero << endl
 					  << h << "Anio: " << h << h << libros[i].anio_publicacion << endl;
 					  		
-						if (libros[i].estatus == "Disponible") {
+						if (libros[i].estatus == "Disponible" || libros[i].estatus == "disponible") {
 							cout << h << "Estatus: " << h << ANSI_VERDE << libros[i].estatus << ANSI_RESET << endl;
 						} else {
 							cout << h << "Estatus: " << h << ANSI_ROJO << libros[i].estatus <<ANSI_RESET << endl;
 						}
                    }
-            } 
-            
+            }     
         } else if (op_buscar == "genero") {
             cout << h << "Ingrese el genero del libro: ";
             getline(cin, buscar);
@@ -164,17 +161,17 @@ void buscarLibro(const vector<Libro>&libros) {
 					  << h << "Autor: " << h << h << libros[i].autor << endl
 					  << h << "Genero: "<< h << libros[i].genero << endl
 					  << h << "Anio: " << h << h << libros[i].anio_publicacion << endl;
-					  if (libros[i].estatus == "Disponible") {
+					  if (libros[i].estatus == "Disponible" || libros[i].estatus == "disponible") {
 							cout << h << "Estatus: " << h << ANSI_VERDE << libros[i].estatus << ANSI_RESET << endl;
 						} else {
 							cout << h << "Estatus: " << h << ANSI_ROJO << libros[i].estatus <<ANSI_RESET << endl;
 						}  
 				    } 
-		        }
+		        }       
         } else {
             cout << h << "Opcion no valida." << endl;
         }
-        cout << endl << h << "¿Deseas realizar otra busqueda? (si/no): ";
+        cout << endl << h << "Â¿Deseas realizar otra busqueda? (si/no): ";
         string respuesta;
         cin >> respuesta;
          
@@ -193,11 +190,11 @@ void actualizarInformacion(vector<Libro>& libros) {
     string buscar, op_buscar, nuevo_titulo, nuevo_estatus;
     cout << h << "Actualizar informacion: " << endl;
     while (true) {
-        cout << h 
-        << "¿Actualizar informacion del libro por titulo o estatus?" << endl 
+        cout << endl << endl << h 
+        << "Â¿Actualizar informacion del libro por titulo o estatus?" << endl << endl
 		<< h << "(Escribe: titulo o estatus): ";
         cin >> op_buscar;
-        buscar[0] = toupper(buscar[0]);
+        cin.ignore();
 		pausa();
         if (op_buscar == "titulo") {
             cout << h << "Introduce el titulo del libro que deseas actualizar: ";
@@ -210,8 +207,8 @@ void actualizarInformacion(vector<Libro>& libros) {
 					<< h << "Titulo: " << h << libro.titulo << endl 
 					<< h << "Autor: " << h << h << libro.autor << endl 
 					<< h<< "Genero: " << h << libro.genero << endl 
-					<< h << "Año: " << h << h << libro.anio_publicacion << endl;
-					if (libro.estatus == "Disponible") {
+					<< h << "Anio: " << h << h << libro.anio_publicacion << endl;
+					if (libro.estatus == "Disponible" || libro.estatus == "disponible") {
 						cout << h << "Estatus: " << h << ANSI_VERDE << libro.estatus << ANSI_RESET << endl;
 					} else {
 						cout << h << "Estatus: " << h << ANSI_ROJO << libro.estatus <<ANSI_RESET << endl;
@@ -227,9 +224,8 @@ void actualizarInformacion(vector<Libro>& libros) {
                 cout << h << "Libro no encontrado." << endl;
             }
         } else if (op_buscar == "estatus") {
-            cout << h << "Introduce el estatus del libro que deseas buscar: ";
+            cout << h << "Introduce el nombre del libro que deseas buscar: ";
             getline(cin, buscar);
-            buscar[0] = toupper(buscar[0]);
             bool encontrado = false;
             for (auto& libro : libros) {
                 if (libro.titulo == buscar) {
@@ -238,13 +234,12 @@ void actualizarInformacion(vector<Libro>& libros) {
 					<< h << "Titulo: " << h << libro.titulo << endl 
 					<< h << "Autor: " << h << h << libro.autor << endl 
 					<< h << "Genero: " << h << libro.genero << endl 
-					<< h << "Año: " << h << h << libro.anio_publicacion << endl;
-					if (libro.estatus == "Disponible") {
+					<< h << "Anio: " << h << h << libro.anio_publicacion << endl;
+					if (libro.estatus == "Disponible" || libro.estatus == "disponible") {
 						cout << h << "Estatus: " << h << ANSI_VERDE << libro.estatus << ANSI_RESET << endl;
 					} else {
 						cout << h << "Estatus: " << h << ANSI_ROJO << libro.estatus <<ANSI_RESET << endl;
-					}
-					
+					}					
                     cout << h << "Introduce el nuevo estatus: ";
                     getline(cin, nuevo_estatus);
                     libro.estatus = nuevo_estatus;
@@ -259,9 +254,9 @@ void actualizarInformacion(vector<Libro>& libros) {
             cout << h << "Opcion no valida." << endl;
         }
         
-        cout << "¿Deseas actualizar otro libro? (si/no): ";
+        cout << "Â¿Deseas actualizar otro libro? (si/no): ";
         string respuesta;
-        cout << h; cin >> respuesta;
+        cin >> respuesta;
         cin.ignore();
         if (respuesta != "si") {
             break;
