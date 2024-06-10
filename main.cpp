@@ -228,8 +228,8 @@ void actualizarInformacion(vector<Libro>& libros) {
             }
         } else if (op_buscar == "estatus") {
             cout << h << "Introduce el estatus del libro que deseas buscar: ";
-            cin.get();
             getline(cin, buscar);
+            cin.ignore();
             bool encontrado = false;
             for (auto& libro : libros) {
                 if (libro.titulo == buscar) {
