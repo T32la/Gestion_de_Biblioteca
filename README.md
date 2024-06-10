@@ -30,15 +30,15 @@ Actualizar información: Facilitar la actualización de la información de los l
 
 ## Integrantes:
 
-- [ ] Daniel
+- [x] Daniel Andres
 
-- [ ] Evelyn
+- [x] Evelyn Carolina
 
-- [ ] Juan
+- [x] Juan Ralios
 
-- [ ] Kevin
+- [x] Kevin Antonio
 
-- [ ] Victoriano
+- [x] Victoriano
 
 ## Descripcion y estructura del Programa `Sistema de Gestion de Biblioteca`
 
