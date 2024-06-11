@@ -4,6 +4,7 @@
 
 #include <string>
 #include <vector>
+#include <set>
 
 using namespace std;
 
@@ -17,13 +18,14 @@ struct Libro {
     bool disponible;
 };
 
+// Funciones
 void mostrar(const vector<Libro>& libros);
-void ingresarLibros(vector<Libro>& libros);
-void buscarLibro(const vector<Libro>& libros);
-void actualizarInformacion(vector<Libro>& libros);
+void ingresarLibros(vector<Libro>& libros, set<string>&generos, set<string>&titulos);
+void buscarLibro(const vector<Libro>& libros, set<string>&generos, set<string>&titulos);
+void actualizarInformacion(vector<Libro>& libros, set<string>&titulos);
 void descripcion();
 void pausa();
-void menu(vector<Libro>& libros);
+void menu(vector<Libro>& libros, set<string>&generos, set<string>&titulos);
 
 // Fin tarea Kevin
 

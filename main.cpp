@@ -5,7 +5,9 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <set>
 #include "libros.h"
+
 
 // colores en terminal
 const string ANSI_VERDE = "\033[32m";
@@ -22,7 +24,7 @@ string h = "\t";
 *				Funciones						*
 *************************************************/
 // Creado por Evelyn 
-void menu(vector<Libro>& libros) {
+void menu(vector<Libro>& libros, set<string>&generos, set<string>&titulos) {
     int op;
     do {
         cout << endl ;
@@ -37,6 +39,7 @@ void menu(vector<Libro>& libros) {
         cout << h << "4. Listar Libros" << endl;
         cout << h << "5. Descripcion" << endl;
         cout << h << "6. Salir" << endl << endl;
+        
 
         cout << h << "Elige una opcion: ";
          cin >> op;
@@ -45,14 +48,14 @@ void menu(vector<Libro>& libros) {
 
         switch (op) {
             case 1:
-                ingresarLibros(libros);
+                ingresarLibros(libros, titulos, generos);
                 break;
             case 2:
             	cout << endl;
-                buscarLibro(libros);
+                buscarLibro(libros, titulos, generos);
                 break;
             case 3:
-                actualizarInformacion(libros);
+                actualizarInformacion(libros, titulos);
                 break;
             case 4:
                 cout << endl << h << "Listar Libros: " << endl << endl;
@@ -97,7 +100,7 @@ void mostrar(const vector<Libro>& libros) {
 // Fin Tarea de Andres
 
 // Tarea de Evelyn
-void ingresarLibros(vector<Libro>& libros) {
+void ingresarLibros(vector<Libro>& libros, set<string>&titulos, set<string>&generos) {
     cout << h << "Ingresar libros" << endl;
     Libro libro;
     cout << h << "Ingresa el Titulo del Libro: ";
@@ -111,6 +114,9 @@ void ingresarLibros(vector<Libro>& libros) {
     cin.ignore();
     libro.estatus = "Disponible";
     libros.push_back(libro);
+       // set
+    titulos.insert(libro.titulo);
+    generos.insert(libro.genero);
     system("cls");
     cout << endl << endl;  
 	cout<< h << h << "Los datos del libro han sido registrados correctamente en el sistema..." << endl << endl;
@@ -120,7 +126,7 @@ void ingresarLibros(vector<Libro>& libros) {
 
 
 // Tarea de Juan
-void buscarLibro(const vector<Libro>&libros) {
+void buscarLibro(const vector<Libro>&libros, set<string>&titulos,  set<string>&generos) {
     string buscar, op_buscar;
     cout << endl << h << "Buscar libro: " << endl;
     while (true) {
@@ -129,20 +135,23 @@ void buscarLibro(const vector<Libro>&libros) {
         cin >> op_buscar;
         cin.ignore();
         pausa();
-        if (op_buscar == "titulo") {
+        if (op_buscar == "titulo") {  
+           cout << endl << h << "Libros disponibles";
+           // Set Vector   
+            vector<string> titulosVector(titulos.begin(), titulos.end());
+            for (int i = 0 ; i < titulosVector.size(); i++) {
+                cout << endl << h << " - " << ": " << titulosVector[i]; 
+           }
+           cout << endl << endl;  
             cout << h << "Ingrese el titulo del libro: ";
-            getline(cin, buscar);
-            // convierte el primer caracter en mayuscula
-            buscar[0] = toupper(buscar[0]);
-            
+            getline(cin, buscar);            
             for (int i = 0; i<libros.size(); i++) {
                 if (libros[i].titulo == buscar) {
                 	  cout << endl 
 					  << h << "Titulo: " << h << libros[i].titulo << endl
 					  << h << "Autor: " << h << h<< libros[i].autor << endl
 					  << h << "Genero: "<< h << libros[i].genero << endl
-					  << h << "Anio: " << h << h << libros[i].anio_publicacion << endl;
-					  		
+					  << h << "Anio: " << h << h << libros[i].anio_publicacion << endl;	
 						if (libros[i].estatus == "Disponible" || libros[i].estatus == "disponible") {
 							cout << h << "Estatus: " << h << ANSI_VERDE << libros[i].estatus << ANSI_RESET << endl;
 						} else {
@@ -150,7 +159,16 @@ void buscarLibro(const vector<Libro>&libros) {
 						}
                    }
             }     
-        } else if (op_buscar == "genero") {
+        } 
+         else if (op_buscar == "genero") {
+            // Set Vector
+            cout << endl << h << "Generos de Libros disponibles: ";
+            vector<string> generosVector(generos.begin(), generos.end());
+            for (int i = 0 ; i < generosVector.size(); i++) {
+                cout << endl << h << " - " << ": " << generosVector[i]; 
+            }
+           cout << endl << endl;   
+           cout << endl << endl;
             cout << h << "Ingrese el genero del libro: ";
             getline(cin, buscar);
             buscar[0] = toupper(buscar[0]);
@@ -186,7 +204,7 @@ void buscarLibro(const vector<Libro>&libros) {
 
 
 // Tarea de Kevin
-void actualizarInformacion(vector<Libro>& libros) {
+void actualizarInformacion(vector<Libro>& libros, set<string>&titulos) {
     string buscar, op_buscar, nuevo_titulo, nuevo_estatus;
     cout << h << "Actualizar informacion: " << endl;
     while (true) {
@@ -197,6 +215,14 @@ void actualizarInformacion(vector<Libro>& libros) {
         cin.ignore();
 		pausa();
         if (op_buscar == "titulo") {
+            cout << endl << h << "Libros disponibles";
+           // Set Vector   
+            vector<string> titulosVector(titulos.begin(), titulos.end());
+            for (int i = 0 ; i < titulosVector.size(); i++) {
+                cout << endl << h << " - " << " : " << titulosVector[i]; 
+           }
+           cout << endl << endl;
+            
             cout << h << "Introduce el titulo del libro que deseas actualizar: ";
             getline(cin, buscar);
             bool encontrado = false;
@@ -288,11 +314,19 @@ void pausa() {
 // Tarea de Victoriano
 int main() {
     vector<Libro> libros;
+    set<string> titulos;
+    set<string> generos;
+    
     libros.push_back({"Eloquent Javascript", "Marijin Haverbeke", "Programacion", 2024, "Disponible"});
 	libros.push_back({"Fundamentos de Programacion usando PSeInt", "Ivan Garcia", "Logica", 2014, "Disponible"});
 	libros.push_back({"Viaje al Centro de la Tierra", "Julio Verne", "Aventura", 1864, "No Disponible"});
 	libros.push_back({"Java", "Kathy Sierra", "Programacion", 2005, "No Disponible"});
-    menu(libros);
+ 
+    titulos.insert({"Eloquent Javascript", "Fundamentos de Programacion usando PSeInt", "Viaje al Centro de la Tierra"});
+    generos.insert({"Programacion", "Logica", "Aventura"});
+    menu(libros, titulos, generos);
+
+    
     return 0;
 }
 // Fin Tarea de Victoriano
