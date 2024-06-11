@@ -307,7 +307,7 @@ void actualizarInformacion(vector<Libro>& libros) {
 // Tarea de Victoriano
 void descripcion() {
     cout << h << "Descripcion: " << endl;
-    cout << h << "\tVersion V0.01\n\t\tSistema de Gestion de libros de la Biblioteca de la UVG.\n\n\tOpciones disponibles:\n\t\t1. Agregar libros.\n\t\t2. Buscar y Listar libros.\n\t\t3. Buscar libro por titulo, genero y actualizar los campos del Libro.\n\t\t4. Listar libros.\n\t\t5. Descripcion del programa.\n\t\t6. Salir del programa.\n\n\tDesarrolladores:\n\t\t- Evelin Carolina\n\t\t- Daniel Andres\n\t\t- Juan Ralios\n\t\t- Kevin Antonio\n\t\t- Victoriano Juarez.\n\n\tProyecto Final del Curso de Algoritmos y Programacion.\n\t\t Lic. Marvin\n\n\t\tUniversidad del Valle de Guatemala\n\t\tAltiplano Solola 2024." << endl << endl;
+    cout << h << "\tVersion V0.01\n\t\tSistema de Gestion de libros de la Biblioteca de la UVG.\n\n\tOpciones disponibles:\n\t\t1. Agregar libros.\n\t\t2. Buscar y Listar libros.\n\t\t3. Buscar libro por titulo, genero y actualizar los campos del Libro.\n\t\t4. Listar libros.\n\t\t5. Descripcion del programa.\n\t\t6. Salir del programa.\n\n\tDesarrolladores:\n\t\t- Evelin Carolina\n\t\t- Andres Daniel\n\t\t- Juan Ralios\n\t\t- Kevin Antonio\n\t\t- Victoriano Juarez.\n\n\tProyecto Final del Curso de Algoritmos y Programacion.\n\t\t Lic. Marvin\n\n\t\tUniversidad del Valle de Guatemala\n\t\tAltiplano Solola 2024." << endl << endl;
     pausa();
 }
 // Fin Tarea de Victoriano
