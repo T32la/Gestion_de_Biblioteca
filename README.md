@@ -45,3 +45,9 @@ Actualizar información: Facilitar la actualización de la información de los l
 [Estructura y descipcion programa](https://github.com/T32la/Gestion_de_Biblioteca/wiki/main)
 
 [Estructura y desciptcion de la libreria libros.h](https://github.com/T32la/Gestion_de_Biblioteca/wiki/Librer%C3%ADa-libros.h)
+
+## Presentación del Proyecto
+
+<div align="center">
+  <video src="https://youtu.be/M8pB9CBrTyA" width="360" height="640" autoplay="true" muted="true" loop="true" controls></video>
+</div>
