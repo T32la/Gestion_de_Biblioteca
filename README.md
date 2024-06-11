@@ -30,7 +30,7 @@ Actualizar información: Facilitar la actualización de la información de los l
 
 ## Integrantes:
 
-- [x] Daniel Andres
+- [x] Andres Daniel 
 
 - [x] Evelyn Carolina
 
