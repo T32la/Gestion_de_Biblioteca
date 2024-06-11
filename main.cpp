@@ -261,7 +261,7 @@ void actualizarInformacion(vector<Libro>& libros) {
                 cout << h << " - " << libros[i].titulo << endl;
             }
            cout << endl << endl;
-            cout << h << "Introduce el Titulo del libro" << endl << h << " a Actualizar el estatus: ";
+            cout << h << "Introduce el Titulo del libro" << endl << h << " para Actualizar el estatus: ";
             getline(cin, buscar);
             bool encontrado = false;
             pausa();
