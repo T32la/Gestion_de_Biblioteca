@@ -128,9 +128,8 @@ void ingresarLibros(vector<Libro>& libros, set<string>&titulos, set<string>&gene
 // Tarea de Juan
 void buscarLibro(const vector<Libro>&libros, set<string>&titulos,  set<string>&generos) {
     string buscar, op_buscar;
-    cout << endl << h << "BUSCAR LIBRO: " << endl;
     while (true) {
-        cout << endl << h << "¿Buscar por TITULO o GENERO?"
+        cout << h << "¿Buscar Libro por TITULO o GENERO?"
 			<< endl << endl << h << "Elige una opcion" << endl
             << h << "Escribir titulo, si desea Buscar por titulo:" << endl
             << h << "Escribir genero, si desea Buscar por genero " << endl;
