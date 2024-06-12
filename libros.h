@@ -22,7 +22,7 @@ struct Libro {
 void mostrar(const vector<Libro>& libros);
 void ingresarLibros(vector<Libro>& libros, set<string>&generos, set<string>&titulos);
 void buscarLibro(const vector<Libro>& libros, set<string>&generos, set<string>&titulos);
-void actualizarInformacion(vector<Libro>& libros, set<string>&titulos);
+void actualizarInformacion(vector<Libro>& libros);
 void descripcion();
 void pausa();
 void menu(vector<Libro>& libros, set<string>&generos, set<string>&titulos);
