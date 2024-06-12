@@ -5,7 +5,9 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <set>
 #include "libros.h"
+
 
 // colores en terminal
 const string ANSI_VERDE = "\033[32m";
@@ -22,7 +24,7 @@ string h = "\t";
 *				Funciones						*
 *************************************************/
 // Creado por Evelyn 
-void menu(vector<Libro>& libros) {
+void menu(vector<Libro>& libros, set<string>&titulos,  set<string>&generos) {
     int op;
     do {
         cout << endl ;
@@ -37,19 +39,20 @@ void menu(vector<Libro>& libros) {
         cout << h << "4. Listar Libros" << endl;
         cout << h << "5. Descripcion" << endl;
         cout << h << "6. Salir" << endl << endl;
+        
 
         cout << h << "Elige una opcion: ";
-         cin >> op;
+        cin >> op;
         cin.ignore(); // Limpiar el buffer de entrada
         system("cls");
 
         switch (op) {
             case 1:
-                ingresarLibros(libros);
+                ingresarLibros(libros, titulos, generos);
                 break;
             case 2:
             	cout << endl;
-                buscarLibro(libros);
+                buscarLibro(libros, titulos, generos);
                 break;
             case 3:
                 actualizarInformacion(libros);
@@ -97,7 +100,7 @@ void mostrar(const vector<Libro>& libros) {
 // Fin Tarea de Andres
 
 // Tarea de Evelyn
-void ingresarLibros(vector<Libro>& libros) {
+void ingresarLibros(vector<Libro>& libros, set<string>&titulos, set<string>&generos) {
     cout << h << "Ingresar libros" << endl;
     Libro libro;
     cout << h << "Ingresa el Titulo del Libro: ";
@@ -111,6 +114,9 @@ void ingresarLibros(vector<Libro>& libros) {
     cin.ignore();
     libro.estatus = "Disponible";
     libros.push_back(libro);
+       // set
+    titulos.insert(libro.titulo);
+    generos.insert(libro.genero);
     system("cls");
     cout << endl << endl;  
 	cout<< h << h << "Los datos del libro han sido registrados correctamente en el sistema..." << endl << endl;
@@ -120,29 +126,35 @@ void ingresarLibros(vector<Libro>& libros) {
 
 
 // Tarea de Juan
-void buscarLibro(const vector<Libro>&libros) {
+void buscarLibro(const vector<Libro>&libros, set<string>&titulos,  set<string>&generos) {
     string buscar, op_buscar;
-    cout << endl << h << "Buscar libro: " << endl;
     while (true) {
-        cout << endl << h << "¿Buscar por titulo o por genero?"
-			<< endl << h << " (Escribe: titulo o genero): ";
+        cout << h << "¿Buscar Libro por TITULO o GENERO?"
+			<< endl << endl << h << "Elige una opcion" << endl
+            << h << "Escribir titulo, si desea Buscar por titulo:" << endl
+            << h << "Escribir genero, si desea Buscar por genero " << endl;
+            cout << h << "Escribe la opcion: ";
         cin >> op_buscar;
         cin.ignore();
         pausa();
-        if (op_buscar == "titulo") {
+        if (op_buscar == "titulo") {  
+           cout << endl << h << "Libros disponibles";
+           // Set Vector   
+            vector<string> titulosVector(titulos.begin(), titulos.end());
+            for (int i = 0 ; i < titulosVector.size(); i++) {
+                cout << endl << h << " - " << ": " << titulosVector[i]; 
+           }
+           cout << endl << endl;  
             cout << h << "Ingrese el titulo del libro: ";
-            getline(cin, buscar);
-            // convierte el primer caracter en mayuscula
-            buscar[0] = toupper(buscar[0]);
-            
+            getline(cin, buscar);      
+            pausa();      
             for (int i = 0; i<libros.size(); i++) {
                 if (libros[i].titulo == buscar) {
                 	  cout << endl 
 					  << h << "Titulo: " << h << libros[i].titulo << endl
 					  << h << "Autor: " << h << h<< libros[i].autor << endl
 					  << h << "Genero: "<< h << libros[i].genero << endl
-					  << h << "Anio: " << h << h << libros[i].anio_publicacion << endl;
-					  		
+					  << h << "Anio: " << h << h << libros[i].anio_publicacion << endl;	
 						if (libros[i].estatus == "Disponible" || libros[i].estatus == "disponible") {
 							cout << h << "Estatus: " << h << ANSI_VERDE << libros[i].estatus << ANSI_RESET << endl;
 						} else {
@@ -150,10 +162,19 @@ void buscarLibro(const vector<Libro>&libros) {
 						}
                    }
             }     
-        } else if (op_buscar == "genero") {
+        } 
+         else if (op_buscar == "genero") {
+            // Set Vector
+            cout << endl << h << "Generos de Libros disponibles: ";
+            vector<string> generosVector(generos.begin(), generos.end());
+            for (int i = 0 ; i < generosVector.size(); i++) {
+                cout << endl << h << " - " << ": " << generosVector[i]; 
+            }
+           cout << endl << endl;   
+           cout << endl << endl;
             cout << h << "Ingrese el genero del libro: ";
             getline(cin, buscar);
-            buscar[0] = toupper(buscar[0]);
+            pausa();
             for (int i =0; i<libros.size(); i++) {
                 if (libros[i].genero == buscar) {
                     	cout << endl 
@@ -188,18 +209,29 @@ void buscarLibro(const vector<Libro>&libros) {
 // Tarea de Kevin
 void actualizarInformacion(vector<Libro>& libros) {
     string buscar, op_buscar, nuevo_titulo, nuevo_estatus;
-    cout << h << "Actualizar informacion: " << endl;
     while (true) {
-        cout << endl << endl << h 
-        << "¿Actualizar informacion del libro por titulo o estatus?" << endl << endl
-		<< h << "(Escribe: titulo o estatus): ";
+        cout << endl
+		<< h << "Actualizar libro por TITULO o ESTATUS?";
+        cout << endl << endl << h << "Elige una opcion" << endl
+            << h << "Escribir titulo, si desea Buscar por titulo:" << endl
+            << h << "Escribir estatus, si desea Buscar por estatus " << endl;
+            cout << h << "Escribe la opcion: ";
+    
         cin >> op_buscar;
         cin.ignore();
 		pausa();
         if (op_buscar == "titulo") {
+            
+            cout << endl << h << "Libros disponibles"<<endl;
+            for (int i = 0; i < libros.size(); i++) {
+                cout << h << " - " << libros[i].titulo << endl;
+            }
+           cout << endl << endl;
+            
             cout << h << "Introduce el titulo del libro que deseas actualizar: ";
             getline(cin, buscar);
             bool encontrado = false;
+            pausa();
             for (auto& libro : libros) {
                 if (libro.titulo == buscar) {
                     cout << endl << h << "Libro encontrado: " << endl;
@@ -213,7 +245,7 @@ void actualizarInformacion(vector<Libro>& libros) {
 					} else {
 						cout << h << "Estatus: " << h << ANSI_ROJO << libro.estatus <<ANSI_RESET << endl;
 					}
-                    cout << h << "Introduce el nuevo titulo: ";
+                    cout << endl << h << "Introduce el nuevo titulo: ";
 					getline(cin, nuevo_titulo);
                     libro.titulo = nuevo_titulo;
                     encontrado = true;
@@ -224,9 +256,15 @@ void actualizarInformacion(vector<Libro>& libros) {
                 cout << h << "Libro no encontrado." << endl;
             }
         } else if (op_buscar == "estatus") {
-            cout << h << "Introduce el nombre del libro que deseas buscar: ";
+            cout << endl << endl << h << "Libros disponibles"<<endl;
+            for (int i = 0; i < libros.size(); i++) {
+                cout << h << " - " << libros[i].titulo << endl;
+            }
+           cout << endl << endl;
+            cout << h << "Introduce el Titulo del libro" << endl << h << " a Actualizar el estatus: ";
             getline(cin, buscar);
             bool encontrado = false;
+            pausa();
             for (auto& libro : libros) {
                 if (libro.titulo == buscar) {
                     cout << h << "Libro encontrado: " << endl;
@@ -240,8 +278,9 @@ void actualizarInformacion(vector<Libro>& libros) {
 					} else {
 						cout << h << "Estatus: " << h << ANSI_ROJO << libro.estatus <<ANSI_RESET << endl;
 					}					
-                    cout << h << "Introduce el nuevo estatus: ";
-                    getline(cin, nuevo_estatus);
+                    cout << endl << h << "Introduce el nuevo estatus" << endl <<
+                    h << "Disponible a No Disponible" << " o "  << endl << h << "No Disponible a Disponible: " << endl;
+                    cout << endl << h << "Nuevo estatus: "; getline(cin, nuevo_estatus);
                     libro.estatus = nuevo_estatus;
                     encontrado = true;
                     break;
@@ -252,8 +291,7 @@ void actualizarInformacion(vector<Libro>& libros) {
             }
         } else {
             cout << h << "Opcion no valida." << endl;
-        }
-        
+        }  
         cout << "¿Deseas actualizar otro libro? (si/no): ";
         string respuesta;
         cin >> respuesta;
@@ -269,15 +307,15 @@ void actualizarInformacion(vector<Libro>& libros) {
 // Tarea de Victoriano
 void descripcion() {
     cout << h << "Descripcion: " << endl;
-    cout << h << "\tVersion V0.01\n\n\tSistema de Gestion de libros de la Biblioteca de la UVG.\n\n\tOpciones disponibles:\n\n\t\t1. Agregar libros.\n\n\t\t2. Buscar y Listar libros.\n\n\t\t3. Buscar libro por titulo, genero y actualizar los campos del Libro.\n\n\t\t4. Listar libros.\n\n\t\t5. Descripcion del programa.\n\n\t\t6. Salir del programa.\n\n\tDesarrolladores:\n\n\t\t- Evelin Carolina\n\n\t\t- Daniel Andres\n\n\t\t- Juan Ralios\n\n\t\t- Kevin Antonio\n\n\t\t- Victoriano Juarez.\n\n\n\n\tProyecto Final del Curso de Algoritmos y Programacion.\n\n\t\t Lic. Marvin\n\n\n\t\tUniversidad del Valle de Guatemala\n\n\n\t\tAltiplano Solola 2024." << endl << endl;
+    cout << h << "\tVersion V0.01\n\t\tSistema de Gestion de libros de la Biblioteca de la UVG.\n\n\tOpciones disponibles:\n\t\t1. Agregar libros.\n\t\t2. Buscar y Listar libros.\n\t\t3. Buscar libro por titulo, genero y actualizar los campos del Libro.\n\t\t4. Listar libros.\n\t\t5. Descripcion del programa.\n\t\t6. Salir del programa.\n\n\tDesarrolladores:\n\t\t- Evelin Carolina\n\t\t- Daniel Andres\n\t\t- Juan Ralios\n\t\t- Kevin Antonio\n\t\t- Victoriano Juarez.\n\n\tProyecto Final del Curso de Algoritmos y Programacion.\n\t\t Lic. Marvin\n\n\t\tUniversidad del Valle de Guatemala\n\t\tAltiplano Solola 2024." << endl << endl;
     pausa();
 }
 // Fin Tarea de Victoriano
 
 void pausa() {
 	system("pause");
-	cout << endl;
-	cout << h << h << "Presiona Enter para continuar...";
+	cout << endl <<
+	h << h << "Presiona Enter para continuar...";
 	system("cls");
 }
 
@@ -288,11 +326,19 @@ void pausa() {
 // Tarea de Victoriano
 int main() {
     vector<Libro> libros;
-    libros.push_back({"Eloquent Javascript", "Marijin Haverbeke", "Programacion", 2024, "Disponible"});
+    set<string> titulos;
+    set<string> generos;
+    
+    libros.push_back({"Eloquent Javascript", "Marijin Haverbeke", "Programacion" ,2024, "Disponible"});
 	libros.push_back({"Fundamentos de Programacion usando PSeInt", "Ivan Garcia", "Logica", 2014, "Disponible"});
 	libros.push_back({"Viaje al Centro de la Tierra", "Julio Verne", "Aventura", 1864, "No Disponible"});
 	libros.push_back({"Java", "Kathy Sierra", "Programacion", 2005, "No Disponible"});
-    menu(libros);
+ 
+    titulos.insert({"Eloquent Javascript", "Fundamentos de Programacion usando PSeInt", "Viaje al Centro de la Tierra", "Java"});
+    generos.insert({"Programacion", "Logica", "Aventura"});
+    menu(libros, titulos, generos);
+
+    
     return 0;
 }
 // Fin Tarea de Victoriano
